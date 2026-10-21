@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ps5-clinic-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLINIC_TIMEZONE
+        value: Asia/Kolkata
